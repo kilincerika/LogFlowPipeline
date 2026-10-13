@@ -1,0 +1,6 @@
+clientIp:192.168.1.10 | path:/index.html | status:200 | timestamp:2026-10-13T10:00:01
+clientIp:192.168.1.11 | path:/api/users | status:404 | timestamp:2026-10-13T10:00:02
+clientIp:192.168.1.12 | path:/api/products | status:200 | timestamp:2026-10-13T10:00:03
+clientIp:192.168.1.13 | path:/api/checkout | status:500 | timestamp:2026-10-13T10:00:04
+clientIp:192.168.1.14 | path:/admin/panel | status:403 | timestamp:2026-10-13T10:00:05
+clientIp:192.168.1.15 | path:/api/payment | status:502 | timestamp:2026-10-13T10:00:06
