@@ -1,0 +1,8 @@
+192.168.1.10 - - [29/Sep/2026:10:00:00 +0300] "GET /index.html HTTP/1.1" 200 1024 "Mozilla/5.0"
+192.168.1.15 - - [29/Sep/2026:10:01:05 +0300] "POST /api/login HTTP/1.1" 401 512 "AuthClient/1.0"
+192.168.1.20 - - [29/Sep/2026:10:02:10 +0300] "GET /api/users HTTP/1.1" 200 2048 "Mozilla/5.0"
+192.168.1.25 - - [29/Sep/2026:10:03:15 +0300] "GET /api/orders HTTP/1.1" 404 256 "OrderApp/2.1"
+192.168.1.30 - - [29/Sep/2026:10:04:20 +0300] "GET /dashboard HTTP/1.1" 200 4096 "Mozilla/5.0"
+192.168.1.35 - - [29/Sep/2026:10:05:25 +0300] "POST /api/pay HTTP/1.1" 500 128 "PaymentBot/1.2"
+192.168.1.40 - - [29/Sep/2026:10:06:30 +0300] "DELETE /api/session HTTP/1.1" 204 - "AuthClient/1.0"
+192.168.1.45 - - [29/Sep/2026:10:07:45 +0300] "GET /static/bundle.js HTTP/1.1" 200 8192 "Mozilla/5.0"

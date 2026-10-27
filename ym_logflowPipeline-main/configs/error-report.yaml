@@ -1,0 +1,20 @@
+pipeline:
+  name: error-report
+
+  source:
+    type: file
+    params: { path: data/access.log }
+
+  stages:
+    - type: parse
+      params: { format: clf }
+
+    - type: filter
+      params: { field: status, op: ">=", value: 400 }
+
+    - type: project
+      params: { fields: [timestamp, clientIp, status, path] }
+
+  sink:
+    type: file
+    params: { path: out/errors.txt }

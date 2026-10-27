@@ -1,0 +1,20 @@
+pipeline:
+  name: bandwidth-by-client
+
+  source:
+    type: file
+    params: { path: data/access.log }
+
+  stages:
+    - type: parse
+      params: { format: clf }
+
+    - type: filter
+      params: { field: bytes, op: ">=", value: 1024 }
+
+    - type: project
+      params: { fields: [clientIp, bytes, path, status] }
+
+  sink:
+    type: file
+    params: { path: out/bandwidth-by-client.txt }

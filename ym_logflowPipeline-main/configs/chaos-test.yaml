@@ -1,0 +1,32 @@
+pipeline:
+  name: chaos-resilience-pipeline
+
+  source:
+    type: file
+    params: { path: data/access-dirty.log }
+
+  stages:
+    - type: parse
+      policy: DEAD_LETTER
+      params: { format: combined, maxLineBytes: 65536 }
+
+    - type: validate
+      policy: DEAD_LETTER
+      params:
+        requiredFields: [clientIp, method, path, timestamp]
+        statusRange: [100, 599]
+        bytesRange: [0, 104857600]
+        timestampYearRange: [2000, 2035]
+        validateIp: true
+
+    - type: project
+      policy: SKIP
+      params: { fields: [timestamp, clientIp, method, path, status, bytes] }
+
+  sink:
+    type: file
+    params: { path: out/clean-access.log }
+
+  deadLetter:
+    type: file
+    params: { path: out/dead-letter.log }

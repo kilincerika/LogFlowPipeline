@@ -1,0 +1,28 @@
+pipeline:
+  name: empty-file-chaos-pipeline
+
+  source:
+    type: file
+    params: { path: data/access-empty.log }
+
+  stages:
+    - type: parse
+      policy: DEAD_LETTER
+      params: { format: combined }
+
+    - type: validate
+      policy: DEAD_LETTER
+      params:
+        requiredFields: [clientIp, method, path, timestamp]
+        statusRange: [100, 599]
+        bytesRange: [0, 104857600]
+        timestampYearRange: [2000, 2035]
+        validateIp: true
+
+  sink:
+    type: file
+    params: { path: out/empty-clean.log }
+
+  deadLetter:
+    type: file
+    params: { path: out/empty-dead-letter.log }

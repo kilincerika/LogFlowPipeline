@@ -1,0 +1,8 @@
+192.168.1.10 - - [29/Sep/2026:10:00:00 +0300] "GET /index.html HTTP/1.1" 200 1024
+This is a completely malformed line
+192.168.1.15 - - [29/Sep/2026:10:01:05 +0300] "POST /login HTTP/1.1" 401 512
+192.168.1.99 - - [invalid-timestamp] "GET /error HTTP/1.1" 200 128
+192.168.1.20 - - [29/Sep/2026:10:02:10 +0300] "GET /dashboard HTTP/1.1" 200 2048
+192.168.1.30 - - [29/Sep/2026:10:03:15 +0300] "GET /missing-status HTTP/1.1" BAD_STATUS 500
+
+192.168.1.40 - - [29/Sep/2026:10:04:20 +0300] "GET /products?category=books&sort=asc HTTP/1.1" 200 4096 "Mozilla/5.0 (X11; Ubuntu; Linux x86_64)"

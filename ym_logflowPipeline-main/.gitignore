@@ -1,0 +1,28 @@
+# Derleme ve ikili dosyalar
+output/main
+output/*.exe
+output/*.o
+output/*.out
+bin/
+*.exe
+*.o
+*.out
+main
+pipeline
+logflow
+test_runner
+test_runner_cov
+
+# Gcov ve test kapsamı
+*.gcda
+*.gcno
+*.gcov
+
+# IDE ve geçici dosyalar
+.vscode/
+.idea/
+*.swp
+*~
+# Test ve benchmark çıktıları
+tests/output/
+data/benchmark*.log
